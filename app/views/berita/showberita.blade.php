@@ -5,7 +5,7 @@
 <h2>{{ $berita->judul }}</h2>
 <article>{{ ($berita->konten) }}</article>
 @if ($berita->gambar)
-<img src="{{ $berita->gambar }}">
+<img src="{{URL::to('/')}}/{{ $berita->gambar }}">
 @endif
 
 @stop
