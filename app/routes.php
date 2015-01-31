@@ -32,8 +32,8 @@ Route::get('admin/logout', array('as'=>'logout', 'uses'=>'AuthController@logout'
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
 Route::get('/', array('as'=> 'admin', 'uses'=> 'AdminController@index'));
-Route::get('/register', array('uses'=> 'AuthController@register'));
-Route::post('/register', array('uses'=> 'AuthController@simpan'));
+Route::get('/register', array('as'=> 'register','uses'=> 'AuthController@register'));
+Route::post('/register', array('as'=> 'cek_register', 'uses'=> 'AuthController@simpan'));
 #Administrasi Profil
 #Indonesia
 Route::get('/profil', array('as'=>'daftar_profil', 'uses'=> 'AdminController@daftar_profil'));

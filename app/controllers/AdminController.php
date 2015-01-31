@@ -62,7 +62,7 @@ class AdminController extends BaseController {
 	public function store_berita()
 	{
 	$path = '/media/gambar/';
-    $namafile = '';
+  $namafile = '';
 
    if (Input::hasFile('gambar')) {
         $file           = Input::file('gambar');
@@ -242,7 +242,7 @@ class AdminController extends BaseController {
   About::create(['judul' => Input::get('judul'),
                  'konten'   => Input::get('konten')]);
 
-  return Redirect::route('daftar_profil');    
+  return Redirect::route('daftar_profil');
   }
 
 
@@ -286,7 +286,7 @@ class AdminController extends BaseController {
     ->firstOrFail()
     ->delete();
     return Redirect::route('daftar_profil');
-  }  
+  }
 
 
   public function delete_profil_en($slug)
@@ -295,5 +295,5 @@ class AdminController extends BaseController {
       ->firstOrFail()
       ->delete();
       return Redirect::route('daftar_profil');
-  }  
+  }
 }

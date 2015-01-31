@@ -29,6 +29,11 @@ p {
 	color: #000000;
 }
 
+.alert {
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
 #owl-slider .item img {
     display: block;
     width: 100%;

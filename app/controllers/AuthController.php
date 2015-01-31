@@ -19,15 +19,16 @@ class AuthController extends BaseController {
 			'username' => 'required|alpha_num|min:4',
 			'email'	   => 'required|email|unique:users',
 			'password' => 'required|alphaNum|min:4',
-			'password_confirmation' => 'required|alphaNum|min:4'
+			'password_confirmation' => 'required|same:password'
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-			return Redirect::to('/admin/register')
-				->withErrors($validator) //
-				->withInput(Input::except('password'));
+			return Redirect::route('register')
+				->withErrors($validator)
+				->withInput(Input::all());
+				#->withInput(Input::except('password'));
 		} else {
 
 			$datauser = array(
@@ -39,15 +40,16 @@ class AuthController extends BaseController {
 		}
 
 			if (User::create($datauser)) {
-				return Redirect::to('/admin');
+				return Redirect::route('admin');
 			}
 			else {
-				return Redirect::to('/admin/register');
+				return Redirect::route('register');
 			}
 	}
 
 	public function login()
 	{
+        $remember = (Input::get('remember')) ? true : false;
 
 		$rules = array(
 			'username' => 'required',
@@ -57,8 +59,8 @@ class AuthController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-			return Redirect::to('/login')
-				->withErrors($validator) //
+			return Redirect::route('login')
+				->withErrors($validator)
 				->withInput(Input::except('password'));
 		} else {
 
@@ -67,11 +69,13 @@ class AuthController extends BaseController {
 				'password' 	=> Input::get('password')
 			);
 
-			if (Auth::attempt($datauser)) {
-				return Redirect::to('/admin');
+			if (Auth::attempt($datauser, $remember)) {
+				return Redirect::route('admin');
 			}
 			else {
-				return Redirect::to('/admin/login');
+				return Redirect::route('login')
+				->withErrors(array('password' => Lang::get('validation.login_gagal')))
+				->withInput(Input::except('password'));
 			}
 		}
 	}
@@ -79,7 +83,7 @@ class AuthController extends BaseController {
 	public function logout()
 	{
     Auth::logout();
-    return Redirect::to('/');
+    return Redirect::route('homepage');
 	}
 
 }

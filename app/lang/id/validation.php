@@ -56,7 +56,7 @@ return array(
 	"not_in"               => ":attribute tersebut tidak valid.",
 	"numeric"              => ":attribute harus berupa angka.",
 	"regex"                => "Format :attribute tidak valid.",
-	"required"             => ":attribute harus diisi",
+	"required"             => ":attribute harus diisi.",
 	"required_if"          => ":attribute field harus diisi apabila :other bernilai :value.",
 	"required_with"        => ":attribute field harus diisi apabila terdapat :values.",
 	"required_with_all"    => ":attribute field harus diisi apabila terdapat :values.",
@@ -72,6 +72,7 @@ return array(
 	"unique"               => ":attribute telah digunakan.",
 	"url"                  => "Format :attribute tidak valid.",
 	"timezone"             => ":attribute harus merupakan zona yang valid.",
+	"login_gagal"   	   => "Username atau password yang anda masukkan salah.",
 
 	/*
 	|--------------------------------------------------------------------------
