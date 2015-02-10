@@ -16,7 +16,6 @@ class AdminController extends BaseController {
 	#Search
 	public function searchresults($cari)
 	{
-  $semua_profil = Profil::orderBy('created_at', 'desc')->get();
 	$search_berita = Berita::where('judul', 'LIKE', '%'.$cari.'%')->orWhere('konten', 'LIKE', '%'.$cari.'%')
 	->orderBy('created_at', 'desc')
 	->get();
@@ -54,10 +53,10 @@ class AdminController extends BaseController {
 	return View::make('admin.tambahberita');
 	}
 
-    public function tambah_berita_en()
-    {
-    return View::make('admin.tambahberita_en');
-    }
+  public function tambah_berita_en()
+  {
+  return View::make('admin.tambahberita_en');
+  }
 
 	public function store_berita()
 	{

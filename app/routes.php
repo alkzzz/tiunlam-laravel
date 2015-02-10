@@ -8,6 +8,9 @@ if (in_array($locale, Config::get('app.available_locales'))) {
     $locale = null;
 }
 
+View::share('semua_profil', Profil::orderBy('created_at', 'desc')->get());
+View::share('about', About::orderBy('created_at', 'desc')->get());
+
 Route::group(array('prefix' => $locale), function()
 {
 Route::get('/', array('as'=>'homepage', 'uses'=> 'HomeController@index'));
@@ -15,6 +18,13 @@ Route::get('/', array('as'=>'homepage', 'uses'=> 'HomeController@index'));
 Route::get('/profil/{slug}', array('as'=>'profil', 'uses'=>'HomeController@show_profil'));
 #Profil - EN
 Route::get('/about/{slug}', array('as'=>'profil_en', 'uses'=>'HomeController@show_profil_en'));
+
+#PDF
+Route::get('surat', function()
+{
+	$surat = PDF::loadView('surat');
+	return $surat->stream('surat.pdf');
+});
 
 #Berita - ID
 Route::get('/berita', array('as'=>'berita.index', 'uses'=> 'BeritaController@index'));

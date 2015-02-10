@@ -126,7 +126,8 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
 		#sluggify
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
-
+		#PDF
+		'Barryvdh\DomPDF\ServiceProvider',
 	),
 
 	/*
@@ -194,6 +195,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Image' 			=> 'Intervention\Image\Facades\Image',
+		'PDF' 				=> 'Barryvdh\DomPDF\Facade',
 
 	),
 
