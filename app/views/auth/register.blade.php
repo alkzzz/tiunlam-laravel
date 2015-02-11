@@ -45,7 +45,7 @@
 	</div>
 	<div class="form-group">
 		{{ Form::submit('Register', ['class'=>'btn btn-primary']) }}
-		{{ Form::submit('Cancel', ['class'=>'btn btn-danger']) }}
+		<a href="{{ URL::route('admin') }}" class="btn btn-danger">Cancel</a>
 	</div>
 
 {{ Form::close() }}

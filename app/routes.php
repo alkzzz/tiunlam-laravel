@@ -47,16 +47,16 @@ Route::post('/register', array('as'=> 'cek_register', 'uses'=> 'AuthController@s
 #Administrasi Profil
 #Indonesia
 Route::get('/profil', array('as'=>'daftar_profil', 'uses'=> 'AdminController@daftar_profil'));
+Route::get('/profil/create', array('as'=>'tambah_profil', 'uses'=> 'AdminController@tambah_profil'));
 Route::get('/profil/{slug}', array('as'=>'show_profil', 'uses'=> 'AdminController@show_profil'));
-Route::get('/create/profil', array('as'=>'tambah_profil', 'uses'=> 'AdminController@tambah_profil'));
 Route::post('/profil', array('as'=>'store_profil', 'uses'=> 'AdminController@store_profil'));
 Route::get('/profil/{slug}/edit', array('as'=>'edit_profil', 'uses'=> 'AdminController@edit_profil'));
 Route::patch('/profil/{slug}', array('as'=>'update_profil', 'uses'=> 'AdminController@update_profil'));
 Route::delete('/profil/{slug}', array('as'=>'delete_profil', 'uses'=> 'AdminController@delete_profil'));
 #English
 Route::get('/en/about', array('as'=>'daftar_profil_en', 'uses'=> 'AdminController@daftar_profil_en'));
+Route::get('/en/about/create', array('as'=>'tambah_profil_en', 'uses'=> 'AdminController@tambah_profil_en'));
 Route::get('/en/about/{slug}', array('as'=>'show_profil', 'uses'=> 'AdminController@show_profil_en'));
-Route::get('/create/about', array('as'=>'tambah_profil_en', 'uses'=> 'AdminController@tambah_profil_en'));
 Route::post('/en/about', array('as'=>'store_profil_en', 'uses'=> 'AdminController@store_profil_en'));
 Route::get('/en/about/{slug}/edit', array('as'=>'edit_profil_en', 'uses'=> 'AdminController@edit_profil_en'));
 Route::patch('/en/about/{slug}', array('as'=>'update_profil_en', 'uses'=> 'AdminController@update_profil_en'));
@@ -64,16 +64,16 @@ Route::delete('/en/about/{slug}', array('as'=>'delete_profil_en', 'uses'=> 'Admi
 #Administrasi Berita
 #Indonesia
 Route::get('/berita', array('as'=>'daftar_berita', 'uses'=> 'AdminController@daftar_berita'));
+Route::get('/berita/create', array('as'=>'tambah_berita', 'uses'=> 'AdminController@tambah_berita'));
 Route::get('/berita/{slug}', array('as'=>'show_berita', 'uses'=> 'AdminController@show_berita'));
-Route::get('/create/berita', array('as'=>'tambah_berita', 'uses'=> 'AdminController@tambah_berita'));
 Route::post('/berita', array('as'=>'store_berita', 'uses'=> 'AdminController@store_berita'));
 Route::get('/berita/{slug}/edit', array('as'=>'edit_berita', 'uses'=> 'AdminController@edit_berita'));
 Route::patch('/berita/{slug}', array('as'=>'update_berita', 'uses'=> 'AdminController@update_berita'));
 Route::delete('/berita/{slug}', array('as'=>'delete_berita', 'uses'=> 'AdminController@delete_berita'));
 #English
 Route::get('/en/news', array('as'=>'daftar_berita_en', 'uses'=> 'AdminController@daftar_berita_en'));
+Route::get('/en/news/create', array('as'=>'tambah_berita_en', 'uses'=> 'AdminController@tambah_berita_en'));
 Route::get('/en/news/{slug}', array('as'=>'show_berita', 'uses'=> 'AdminController@show_berita_en'));
-Route::get('/create/news', array('as'=>'tambah_berita_en', 'uses'=> 'AdminController@tambah_berita_en'));
 Route::post('/en/news', array('as'=>'store_berita_en', 'uses'=> 'AdminController@store_berita_en'));
 Route::get('/en/news/{slug}/edit', array('as'=>'edit_berita_en', 'uses'=> 'AdminController@edit_berita_en'));
 Route::patch('/en/news/{slug}', array('as'=>'update_berita_en', 'uses'=> 'AdminController@update_berita_en'));
